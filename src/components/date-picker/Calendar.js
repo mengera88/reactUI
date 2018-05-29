@@ -33,7 +33,7 @@ export default class Calendar extends Component {
         return new Date(year, _month, 0).getDate()
     }
     getWeekOfDay (year, month, day) {
-        const d = new Date(year, month, day);
+        const d = new Date(year, month, day)
         return d.getDay()
     }
     select(day) {
@@ -89,17 +89,17 @@ export default class Calendar extends Component {
         const calendarClass = classNames('u-calendar', className)
         let daysArray = []
         for (let i = 0; i < weekOfFirstDay; i++) {
-            daysArray.push({day: lastMonthDays - i, disabled: true});
+            daysArray.push({day: lastMonthDays - i, disabled: true})
            
         }
         daysArray.reverse()
 
         for (let i = weekOfFirstDay; i < days + weekOfFirstDay; i ++ ) {
-            daysArray.push({day: i - weekOfFirstDay + 1, disabled: false});
+            daysArray.push({day: i - weekOfFirstDay + 1, disabled: false})
         }
 
         for (let i = 0; i < 7 - weekOfLastDay - 1; i++) {
-            daysArray.push({day: i + 1, disabled: true});
+            daysArray.push({day: i + 1, disabled: true})
         }
 
         return (
@@ -124,17 +124,17 @@ export default class Calendar extends Component {
                         </ul>
                     </div>
                     <div className="calendar-days">
-                         <ul className="f-cb">
+                        <ul className="f-cb">
                             {
                                 daysArray.map( (day, index) => {
                                     return <li 
                                         key={'now' + index} 
                                         className={classNames({'disabled': day.disabled, 'selected': (selectedDay === day.day) && !day.disabled})}
-                                        onClick={this.select.bind(this,day)}>{day.day}
+                                        onClick={this.select.bind(this, day)}>{day.day}
                                     </li>
                                 })
                             }
-                         </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
