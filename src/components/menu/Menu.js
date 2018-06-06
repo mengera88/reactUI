@@ -1,11 +1,11 @@
 /*
- * @Author: jessica(hzgujing@corp.netease.com) 
+ * @Author: jessica(gujing_hy@163.com) 
  * @Date: 2018-01-05 16:12:23 
- * @Last Modified by: jessica(hzgujing@corp.netease.com)
- * @Last Modified time: 2018-01-15 17:17:05
+ * @Last Modified by: jessica(gujing_hy@163.com)
+ * @Last Modified time: 2018-06-06 13:39:34
  */
 import React, { Component} from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import './menu.css'
 import '../../style/index.css'
@@ -40,8 +40,8 @@ export default class Menu extends Component {
     }
 
     setMenuItems(instance) {
-        let menuItems = Object.assign({}, this.state.menuItems);
-        menuItems[instance.props.command] = instance;
+        let menuItems = Object.assign({}, this.state.menuItems)
+        menuItems[instance.props.command] = instance
         this.setState({
             menuItems: menuItems
         })
@@ -56,7 +56,7 @@ export default class Menu extends Component {
 
     handleMenuItemClick(key, instance) {
         if (this.props.onCommand) {
-            this.props.onCommand(key, instance);
+            this.props.onCommand(key, instance)
             this.setState({
                 selected: key
             })
@@ -88,7 +88,7 @@ export default class Menu extends Component {
     }
 
     getMenuContent(content) {
-        this.menuContent = content;
+        this.menuContent = content
     }
 
     scrollUp() {
@@ -114,17 +114,17 @@ export default class Menu extends Component {
         const el = ReactDOM.findDOMNode(this.menuContent)
         let time = setInterval( () => {
             if (el.scrollTop < scrollTop) {
-                el.scrollTop += 40;
+                el.scrollTop += 40
             } else if (el.scrollTop === scrollTop) {
                 clearInterval(time)
             } else if (el.scrollTop > scrollTop) {
-                el.scrollTop -= 40;
+                el.scrollTop -= 40
             }
         }, 5)
     }
 
     handleCheck(command, checked) {
-        let checkItem = this.state.checkItem;
+        let checkItem = this.state.checkItem
         if (checked) {
             checkItem.push(command)
         } else {
@@ -151,16 +151,16 @@ export default class Menu extends Component {
 
         const childrenWithProps = React.Children.map(children, (child, index) => {
             if (!child) {
-              return null;
+                return null
             }
       
             return React.cloneElement(
-              child,
-              Object.assign({}, child.props, {
-                selected: selected
-              })
-            );
-          });
+                child,
+                Object.assign({}, child.props, {
+                    selected: selected
+                })
+            )
+        })
 
 
         return (
